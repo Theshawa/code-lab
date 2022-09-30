@@ -59,7 +59,7 @@ export default useCalendar;
 
 const { dates, selected, today, view, setView, setSelected } = useCalendar();
        `}
-      githubLink=""
+      githubLink="https://github.com/Theshawa/code-lab/tree/main/src/Calendar"
       technologies={["React", "TypeScript"]}
       title="React Calendar Component"
     >
