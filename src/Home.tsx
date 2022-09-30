@@ -50,9 +50,9 @@ const Home = () => {
       </p>
       <a
         href="https://theshawa-dev.web.app/"
-        className="mt-[40px] bg-blue text-white text-[20px] rounded-full px-[20px] py-[10px] font-medium shadow-lg"
+        className="mt-[40px] bg-blue hover:translate-y-[-4px] transition-transform duration-300 active:scale-95 text-white text-[20px] rounded-full px-[20px] py-[10px] font-medium shadow-lg"
       >
-        Visit Theshawa Dasun
+        👉 Visit Theshawa Dasun 👈
       </a>
       <div className="grid grid-cols-1 mt-[100px] w-full md:grid-cols-2 lg:grid-cols-3 gap-[20px]">
         <Item
