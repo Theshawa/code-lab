@@ -1,4 +1,4 @@
-import { Code } from "../Code";
+import { CodePage } from "../components/CodePage";
 import { MONTHS, WEEK_DAYS } from "./data";
 import useCalendar from "./useCalendar";
 
@@ -6,101 +6,11 @@ export const Calendar = () => {
   const { dates, selected, today, view, setView, setSelected } = useCalendar();
 
   return (
-    <>
-      <div className="flex space-y-[20px] lg:space-x-[20px] mb-[40px] bg-gray-100 w-max max-w-full lg:flex-row flex-col lg:space-y-0 p-[20px] rounded-md lg:items-center min-h-[84px]">
-        <h1 className="font-black uppercase text-[24px] pr-[20px]">Calendar</h1>
+    <CodePage
+      code={`
 
-        <p className="lg:pl-[20px] lg:border-l lg:border-gray-400">
-          Year:{" "}
-          <select
-            value={view.year}
-            className="font-medium"
-            onChange={(e) => {
-              setView({ ...view, year: parseInt(e.target.value) });
-            }}
-            name="year"
-          >
-            {Array.from(Array(201)).map((_, i) => (
-              <option key={i} value={selected.getFullYear() - 100 + i}>
-                {selected.getFullYear() - 100 + i}
-              </option>
-            ))}
-          </select>
-        </p>
-        <p>
-          Month:{" "}
-          <select
-            value={view.month}
-            className="font-medium"
-            onChange={(e) => {
-              setView({ ...view, month: parseInt(e.target.value) });
-            }}
-            name="month"
-          >
-            {MONTHS.map((month, i) => (
-              <option key={month} value={i}>
-                {month}
-              </option>
-            ))}
-          </select>
-        </p>
+// useCalendar.ts
 
-        <span className="text-gray-600 italic lg:pl-[20px] lg:border-l lg:border-gray-400">
-          Selected: {selected.toDateString()}
-        </span>
-
-        {selected.toDateString() === today.current.toDateString() ? (
-          ""
-        ) : (
-          <button
-            className="bg-blue-600 rounded-md text-white px-[16px] py-[10px]"
-            onClick={() => {
-              setSelected(today.current);
-              setView({
-                year: today.current.getFullYear(),
-                month: today.current.getMonth(),
-              });
-            }}
-          >
-            Select today
-          </button>
-        )}
-      </div>
-      <div className="grid grid-cols-7 grid-rows-6 gap-[10px] max-w-full w-[calc(60px*7)] h-[calc(60px*7)]">
-        {WEEK_DAYS.map((day) => (
-          <span key={day} className="font-medium text-center">
-            {day.slice(0, 2)}
-          </span>
-        ))}
-        {dates.map((date, i) =>
-          date ? (
-            <button
-              key={i}
-              onClick={() => {
-                setSelected(date);
-              }}
-              disabled={selected.toDateString() === date.toDateString()}
-              className={`disabled:ring-opacity-100 ring-[2px] transition-all duration-300 ring-blue-400 ring-opacity-0 rounded-full flex-shrink-0 w-[50px] h-[50px] ${
-                date.toDateString() === today.current.toDateString()
-                  ? "bg-blue-100"
-                  : ""
-              }`}
-            >
-              {date.getDate()}
-            </button>
-          ) : (
-            <span key={i}></span>
-          )
-        )}
-      </div>
-
-      <h2 className="mt-[100px] text-[30px]">Code</h2>
-      <p className="text-gray-600 ">
-        Technologies: <span className="">Typescript + React</span>
-      </p>
-
-      <Code
-        code={`
 import { useRef, useState, useCallback, useEffect } from "react";
 
 const useCalendar = () => {
@@ -144,8 +54,86 @@ const useCalendar = () => {
 
 export default useCalendar;
 
-`}
-      />
-    </>
+
+// Usage
+
+const { dates, selected, today, view, setView, setSelected } = useCalendar();
+       `}
+      githubLink=""
+      technologies={["React", "TypeScript"]}
+      title="React Calendar Component"
+    >
+      <div className="flex flex-col rounded-[10px] border border-color w-[calc(60px*7)] max-w-full">
+        <div className="flex items-center justify-between p-[20px] border-b border-color">
+          <p className="">
+            Year:{" "}
+            <select
+              value={view.year}
+              className="font-medium cursor-pointer"
+              onChange={(e) => {
+                setView({ ...view, year: parseInt(e.target.value) });
+              }}
+              name="year"
+            >
+              {Array.from(Array(201)).map((_, i) => (
+                <option key={i} value={selected.getFullYear() - 100 + i}>
+                  {selected.getFullYear() - 100 + i}
+                </option>
+              ))}
+            </select>
+          </p>
+          <p>
+            Month:{" "}
+            <select
+              value={view.month}
+              className="font-medium cursor-pointer"
+              onChange={(e) => {
+                setView({ ...view, month: parseInt(e.target.value) });
+              }}
+              name="month"
+            >
+              {MONTHS.map((month, i) => (
+                <option key={month} value={i}>
+                  {month}
+                </option>
+              ))}
+            </select>
+          </p>
+        </div>
+        <div className="grid grid-cols-7 py-[10px] grid-rows-6 max-w-full w-[calc(60px*7)]">
+          {WEEK_DAYS.map((day, i) => (
+            <span
+              key={day}
+              className={`text-center flex text-blue items-center justify-center`}
+            >
+              {day.slice(0, 2)}
+            </span>
+          ))}
+          {dates.map((date, i) =>
+            date ? (
+              <button
+                key={i}
+                onClick={() => {
+                  setSelected(date);
+                }}
+                disabled={selected.toDateString() === date.toDateString()}
+                className={`rounded-[4px] transition-all duration-300 flex-shrink-0 w-[60px] h-[50px] disabled:border-opacity-100 border-2 border-blue border-opacity-0 ${
+                  date.toDateString() === today.current.toDateString()
+                    ? "bg-blue bg-opacity-25"
+                    : ""
+                }`}
+              >
+                {date.getDate()}
+              </button>
+            ) : (
+              <span key={i}></span>
+            )
+          )}
+        </div>
+        <div className="p-[20px] border-t border-color">
+          Selected: {selected.toDateString()}
+        </div>
+      </div>
+    </CodePage>
   );
 };

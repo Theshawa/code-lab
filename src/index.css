@@ -2,10 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&family=Rubik:wght@400;500;700;900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&family=Rubik:wght@300;400;500;700;900&display=swap");
 * {
   font-family: "Rubik", sans-serif;
+}
+
+body {
+  @apply text-[15px] md:text-[16px] bg-white text-black;
 }
 
 code {
@@ -18,10 +21,35 @@ footer {
   @apply p-[20px];
 }
 
-* {
+input,
+select {
   outline: none;
+  background-color: transparent;
 }
 
-select {
-  background-color: transparent;
+.border-color {
+  @apply border-black border-opacity-10;
+}
+.hover-link {
+  @apply underline decoration-[transparent] transition-colors duration-300 hover:decoration-blue;
+}
+
+.tab-link {
+  @apply px-[20px] py-[10px] rounded-[6px] disabled:bg-white disabled:shadow-lg disabled:text-black text-black transition-all duration-300 text-opacity-70 font-medium;
+}
+
+h1 {
+  @apply text-[32px] md:text-[48px] font-light;
+}
+
+table.calendar {
+  max-width: 100%;
+}
+
+table.calendar th {
+  @apply w-[80px] h-[60px] font-normal text-blue;
+}
+
+table.calendar td {
+  @apply w-[80px] h-[60px]  text-black font-thin text-center;
 }
