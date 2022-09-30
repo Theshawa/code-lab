@@ -1,13 +1,27 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&family=Rubik:wght@400;500;700;900&display=swap");
+
+* {
+  font-family: "Rubik", sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: "Roboto Mono", monospace;
+}
+
+header,
+main,
+footer {
+  @apply p-[20px];
+}
+
+* {
+  outline: none;
+}
+
+select {
+  background-color: transparent;
 }
