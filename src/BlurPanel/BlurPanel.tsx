@@ -55,7 +55,7 @@ const { panel, trigger, setShowing, showing } = useBlurPanel<HTMLDivElement,HTML
         
         `}
         title="React Blur Panel"
-        githubLink=""
+        githubLink="https://github.com/Theshawa/code-lab/tree/main/src/BlurPanel"
         technologies={["React", "TypeScript"]}
       >
         <div className="relative w-max pt-[100px] mb-[100px] mx-auto max-w-full">
