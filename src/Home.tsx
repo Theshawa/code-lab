@@ -61,6 +61,12 @@ const Home = () => {
           slug="react-calendar-component"
           technologies={["React", "TypeScript"]}
         ></Item>
+        <Item
+          image="/images/react-blur-panel.png"
+          name="React Blur Panel"
+          slug="react-blur-panel"
+          technologies={["React", "TypeScript"]}
+        ></Item>
       </div>
     </div>
   );

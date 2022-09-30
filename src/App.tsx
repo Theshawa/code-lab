@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import BlurPanel from "./BlurPanel";
 import Calendar from "./Calendar";
 import Home from "./Home";
 
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/react-calendar-component" element={<Calendar />} />
+        <Route path="/react-blur-panel" element={<BlurPanel />} />
       </Routes>
       <footer className="text-[15px] text-black text-opacity-60 pt-[60px]">
         &copy; All copyrights resereved.
