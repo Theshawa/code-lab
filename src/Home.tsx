@@ -67,6 +67,12 @@ const Home = () => {
           slug="react-blur-panel"
           technologies={["React", "TypeScript"]}
         ></Item>
+        <Item
+          image="/images/react-smart-pin-input-field.png"
+          name="React Smart Pin Input Field"
+          slug="react-smart-pin-input-field"
+          technologies={["React", "TypeScript"]}
+        ></Item>
       </div>
     </div>
   );
